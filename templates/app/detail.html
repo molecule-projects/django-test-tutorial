@@ -1,0 +1,16 @@
+<!-- templates/app/list.html -->
+
+{% extends '_base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block styles %}
+{% endblock styles %}
+
+{% block content %}
+<div class="uk-container-xsmall">
+    <h3 class="uk-heading">{{ object.post }}</h3>
+    <p>{{ object.name }}</p>
+    <p>{{ object.created_at | date:'Y-m-d' }}</p>
+</div>
+{% endblock content %}
