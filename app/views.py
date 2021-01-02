@@ -1,6 +1,6 @@
 # app/views.py
 
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 
 from .models import Post
 from .forms import PostForm
@@ -14,6 +14,7 @@ def post_list_view(request):
     if form.is_valid():
         form.save()
         form = PostForm()
+        return redirect(reverse('app:list'))
     template_name = 'app/list.html'
     posts = Post.objects.all()
     context = {
